@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f1117" />
+  <title>Privacy Policy — Dashk</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f1117;
+      --surface: #161b27;
+      --surface2: #1a2230;
+      --border: #1e2a3a;
+      --accent: #3b82f6;
+      --accent-dim: #1d4ed8;
+      --text: #cbd5e1;
+      --text-strong: #f1f5f9;
+      --text-muted: #64748b;
+      --green-bg: #14532d;
+      --green-fg: #4ade80;
+      --orange-bg: #7c2d12;
+      --orange-fg: #fb923c;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      font-size: 16px;
+      padding: 0 0 4rem;
+    }
+
+    /* ── STICKY HEADER ── */
+    .sticky-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15,17,23,0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.25rem;
+      gap: 1rem;
+    }
+
+    .sticky-bar .app-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-strong);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+/* ── LANGUAGE SWITCHER ── */
+    .lang-switcher {
+      display: flex;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.4rem 0.85rem;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+      letter-spacing: 0.03em;
+    }
+
+    .lang-btn.active {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    /* ── CONTAINER ── */
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem;
+    }
+
+    /* ── HERO HEADER ── */
+    header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h1 {
+      font-size: clamp(1.4rem, 4vw, 1.9rem);
+      font-weight: 700;
+      color: var(--text-strong);
+      margin-bottom: 0.35rem;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .last-updated {
+      display: inline-block;
+      margin-top: 0.9rem;
+      background: var(--surface2);
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      padding: 0.3rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+    }
+
+    /* ── HIGHLIGHT BOX ── */
+    .highlight-box {
+      background: rgba(59,130,246,0.07);
+      border: 1px solid rgba(59,130,246,0.25);
+      border-radius: 12px;
+      padding: 1.1rem 1.25rem;
+      margin: 1rem 0;
+    }
+
+    /* ── SECTIONS ── */
+    h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-strong);
+      margin: 2.5rem 0 0.75rem;
+      padding-left: 0.9rem;
+      border-left: 3px solid var(--accent);
+    }
+
+    p { margin-bottom: 0.6rem; }
+
+    ul {
+      padding-left: 1.35rem;
+      margin: 0.5rem 0;
+    }
+
+    li { margin-bottom: 0.35rem; }
+
+    strong { color: var(--text-strong); }
+
+    a { color: #60a5fa; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    code {
+      background: var(--surface2);
+      color: #93c5fd;
+      padding: 0.1em 0.4em;
+      border-radius: 4px;
+      font-size: 0.85em;
+    }
+
+    .section-sub {
+      font-weight: 700;
+      color: #93c5fd;
+      margin: 1.25rem 0 0.4rem;
+      font-size: 0.95rem;
+    }
+
+    /* ── PERMISSIONS TABLE → CARDS on mobile ── */
+    .perm-table { margin-top: 1rem; }
+
+    /* Desktop table */
+    @media (min-width: 600px) {
+      .perm-table table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.88rem;
+      }
+
+      .perm-table th {
+        text-align: left;
+        background: var(--surface2);
+        color: var(--text-muted);
+        font-weight: 600;
+        padding: 0.6rem 0.8rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .perm-table td {
+        padding: 0.7rem 0.8rem;
+        border-bottom: 1px solid var(--surface2);
+        vertical-align: top;
+      }
+
+      .perm-table tr:last-child td { border-bottom: none; }
+      .perm-table tr:hover td { background: var(--surface2); }
+      .perm-table .mobile-cards { display: none; }
+    }
+
+    /* Mobile cards */
+    @media (max-width: 599px) {
+      .perm-table table { display: none; }
+
+      .perm-cards { display: flex; flex-direction: column; gap: 0.7rem; }
+
+      .perm-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 0.9rem 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+      }
+
+      .perm-card .perm-name {
+        font-weight: 700;
+        color: var(--text-strong);
+        font-size: 0.9rem;
+      }
+
+      .perm-card .perm-why {
+        font-size: 0.85rem;
+        color: var(--text);
+      }
+    }
+
+    @media (min-width: 600px) {
+      .perm-cards { display: none; }
+    }
+
+    /* ── BADGES ── */
+    .badge-no {
+      display: inline-block;
+      background: var(--green-bg);
+      color: var(--green-fg);
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .badge-yes {
+      display: inline-block;
+      background: var(--orange-bg);
+      color: var(--orange-fg);
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      line-height: 1.9;
+    }
+
+    /* ── LANG CONTENT ── */
+    [data-lang] { display: none; }
+    [data-lang].visible { display: block; }
+  </style>
+</head>
+<body>
+
+<!-- STICKY BAR -->
+<div class="sticky-bar">
+  <div class="app-name">Dashk</div>
+  <div class="lang-switcher">
+    <button class="lang-btn active" onclick="setLang('fr')" id="btn-fr">FR</button>
+    <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ══════════════════════════════════════
+       FRENCH VERSION
+  ══════════════════════════════════════ -->
+  <div data-lang="fr" class="visible">
+
+    <header>
+      <h1>Politique de confidentialité</h1>
+      <p class="subtitle">Application <strong>Dashk</strong> — DashCamPhone</p>
+      <span class="last-updated">Dernière mise à jour : 14 juin 2026</span>
+    </header>
+
+    <p>La présente politique décrit comment l'application <strong>Dashk</strong> (« l'Application »), éditée par <strong>ZAMOURI Adam</strong> (« nous »), traite tes données lorsque tu utilises l'Application.</p>
+
+    <h2>1. Responsable du traitement</h2>
+    <ul>
+      <li>Éditeur : <strong>ZAMOURI Adam</strong></li>
+      <li>Contact : <a href="mailto:dashk.contact@gmail.com">dashk.contact@gmail.com</a></li>
+    </ul>
+
+    <h2>2. Principe général : tes vidéos restent sur ton appareil</h2>
+    <div class="highlight-box">
+      <p>Dashk est une dashcam. L'enregistrement vidéo (avec son) et la position GPS servent <strong>exclusivement</strong> à produire et horodater tes clips de trajet. <strong>Ces enregistrements vidéo, audio et de localisation sont stockés localement sur ton appareil</strong> (mémoire interne de l'app puis galerie <code>Movies/DashCamPhone/</code>). <strong>Nous ne les transférons pas, ne les consultons pas et ne les stockons pas sur nos serveurs.</strong></p>
+    </div>
+
+    <h2>3. Permissions utilisées et finalités</h2>
+
+    <div class="perm-table">
+      <!-- Desktop -->
+      <table>
+        <thead>
+          <tr>
+            <th>Permission</th>
+            <th>Pourquoi</th>
+            <th>Donnée envoyée hors de l'appareil ?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Caméra</strong></td><td>Filmer la route pendant le trajet</td><td><span class="badge-no">Non — stockée localement</span></td></tr>
+          <tr><td><strong>Microphone</strong></td><td>Enregistrer le son avec la vidéo</td><td><span class="badge-no">Non — stocké localement</span></td></tr>
+          <tr><td><strong>Localisation</strong></td><td>Incruster les coordonnées GPS sur la vidéo</td><td><span class="badge-no">Non — reste sur l'appareil</span></td></tr>
+          <tr><td><strong>Reconnaissance d'activité</strong></td><td>Détecter automatiquement le début / fin de trajet</td><td><span class="badge-no">Non — traité localement</span></td></tr>
+          <tr><td><strong>Bluetooth</strong></td><td>Détecter la connexion à l'autoradio pour démarrer un trajet</td><td><span class="badge-no">Non — traité localement</span></td></tr>
+          <tr><td><strong>Notifications</strong></td><td>Afficher l'état de l'enregistrement en cours</td><td><span class="badge-no">Non</span></td></tr>
+          <tr><td><strong>Service en avant-plan</strong></td><td>Maintenir l'enregistrement actif avec notification visible</td><td><span class="badge-no">Non</span></td></tr>
+          <tr><td><strong>Internet / ID publicitaire</strong></td><td>Publicités et statistiques (voir §4)</td><td><span class="badge-yes">Oui — voir §4</span></td></tr>
+        </tbody>
+      </table>
+      <!-- Mobile cards -->
+      <div class="perm-cards">
+        <div class="perm-card"><div class="perm-name">Caméra</div><div class="perm-why">Filmer la route pendant le trajet</div><span class="badge-no">Non — stockée localement</span></div>
+        <div class="perm-card"><div class="perm-name">Microphone</div><div class="perm-why">Enregistrer le son avec la vidéo</div><span class="badge-no">Non — stocké localement</span></div>
+        <div class="perm-card"><div class="perm-name">Localisation</div><div class="perm-why">Incruster les coordonnées GPS sur la vidéo</div><span class="badge-no">Non — reste sur l'appareil</span></div>
+        <div class="perm-card"><div class="perm-name">Reconnaissance d'activité</div><div class="perm-why">Détecter automatiquement le début / fin de trajet</div><span class="badge-no">Non — traité localement</span></div>
+        <div class="perm-card"><div class="perm-name">Bluetooth</div><div class="perm-why">Détecter la connexion à l'autoradio pour démarrer un trajet</div><span class="badge-no">Non — traité localement</span></div>
+        <div class="perm-card"><div class="perm-name">Notifications</div><div class="perm-why">Afficher l'état de l'enregistrement en cours</div><span class="badge-no">Non</span></div>
+        <div class="perm-card"><div class="perm-name">Service en avant-plan</div><div class="perm-why">Maintenir l'enregistrement actif avec notification visible</div><span class="badge-no">Non</span></div>
+        <div class="perm-card"><div class="perm-name">Internet / ID publicitaire</div><div class="perm-why">Publicités et statistiques (voir §4)</div><span class="badge-yes">Oui — voir §4</span></div>
+      </div>
+    </div>
+
+    <p style="margin-top:1rem;">L'enregistrement ne démarre <strong>jamais à ton insu</strong> : il est lancé par toi (bouton dans l'app, commande vocale) ou, en détection automatique, après que tu aies tapé une notification explicite. Une notification persistante reste affichée pendant toute la durée de l'enregistrement.</p>
+
+    <h2>4. Données réellement collectées par nous ou par des tiers</h2>
+    <p>Nous ne créons pas de compte utilisateur (usage « invité »). Les seules données qui quittent ton appareil sont les suivantes :</p>
+
+    <p class="section-sub">a) Retour / feedback</p>
+    <p>Lorsque tu utilises la fonction de feedback, nous transmettons à <strong>Google Firebase (Cloud Firestore)</strong> : le texte de ton message, le modèle de ton appareil, ta version d'Android, la version de l'Application et la date d'envoi. Ces données nous servent à corriger les bugs et améliorer l'Application.</p>
+
+    <p class="section-sub">b) Statistiques d'utilisation</p>
+    <p>L'Application utilise <strong>Google Firebase Analytics</strong> pour mesurer l'usage (écrans consultés, événements techniques, identifiants d'app / appareil). Ces données sont agrégées et servent à améliorer l'Application.</p>
+
+    <p class="section-sub">c) Publicité</p>
+    <p>L'Application affiche des publicités via <strong>Google AdMob</strong>, qui peut traiter ton <strong>identifiant publicitaire</strong> et des données techniques afin de diffuser des annonces.<br/>
+    Politique de Google : <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a><br/>
+    Utilisation des données partenaires : <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">policies.google.com/technologies/partner-sites</a></p>
+
+    <p class="section-sub">d) Achat Premium</p>
+    <p>Tout achat est traité par <strong>Google Play Billing</strong>. Nous ne recevons ni ne stockons tes informations de paiement.</p>
+
+    <h2>5. Partage des données</h2>
+    <p>Nous ne vendons pas tes données. Elles ne sont partagées qu'avec les sous-traitants techniques ci-dessus (Google Firebase, Google AdMob, Google Play) dans les seules finalités décrites, et avec les autorités si la loi l'exige.</p>
+
+    <h2>6. Conservation</h2>
+    <ul>
+      <li><strong>Vidéos / audio / GPS :</strong> conservés localement tant que tu ne les supprimes pas.</li>
+      <li><strong>Feedback :</strong> conservé le temps nécessaire au traitement de ta demande.</li>
+      <li><strong>Statistiques / publicité :</strong> selon les durées de conservation de Google.</li>
+    </ul>
+
+    <h2>7. Tes droits</h2>
+    <p>Conformément au RGPD et aux lois applicables, tu disposes d'un droit d'accès, de rectification, d'effacement, de limitation et d'opposition. Pour l'exercer, écris à <a href="mailto:dashk.contact@gmail.com">dashk.contact@gmail.com</a>. Tu peux aussi réinitialiser ou désactiver ton identifiant publicitaire dans les réglages Android.</p>
+
+    <h2>8. Enfants</h2>
+    <p>L'Application ne s'adresse pas aux enfants de moins de <strong>13 ans</strong> et nous ne collectons pas sciemment leurs données.</p>
+
+    <h2>9. Sécurité</h2>
+    <p>Les transmissions vers Firebase / AdMob sont chiffrées (HTTPS). Tes enregistrements restent dans le stockage de ton appareil.</p>
+
+    <h2>10. Modifications</h2>
+    <p>Nous pouvons mettre à jour cette politique. La date en tête indique la dernière version en vigueur.</p>
+
+    <h2>11. Contact</h2>
+    <p>Pour toute question : <a href="mailto:dashk.contact@gmail.com">dashk.contact@gmail.com</a></p>
+
+    <footer>© 2026 ZAMOURI Adam — Dashk (DashCamPhone)</footer>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       ENGLISH VERSION
+  ══════════════════════════════════════ -->
+  <div data-lang="en">
+
+    <header>
+      <h1>Privacy Policy</h1>
+      <p class="subtitle"><strong>Dashk</strong> — DashCamPhone</p>
+      <span class="last-updated">Last updated: June 14, 2026</span>
+    </header>
+
+    <p>This policy explains how the <strong>Dashk</strong> app ("the App"), published by <strong>ZAMOURI Adam</strong> ("we", "us"), handles your data when you use the App.</p>
+
+    <h2>1. Data Controller</h2>
+    <ul>
+      <li>Publisher: <strong>ZAMOURI Adam</strong></li>
+      <li>Contact: <a href="mailto:dashk.contact@gmail.com">dashk.contact@gmail.com</a></li>
+    </ul>
+
+    <h2>2. Core principle: your videos stay on your device</h2>
+    <div class="highlight-box">
+      <p>Dashk is a dashcam app. Video recording (with audio) and GPS location are used <strong>solely</strong> to produce and timestamp your trip clips. <strong>All video, audio, and location recordings are stored locally on your device</strong> (app internal storage, then <code>Movies/DashCamPhone/</code> gallery). <strong>We do not transfer, access, or store them on our servers.</strong></p>
+    </div>
+
+    <h2>3. Permissions used and their purposes</h2>
+
+    <div class="perm-table">
+      <!-- Desktop -->
+      <table>
+        <thead>
+          <tr>
+            <th>Permission</th>
+            <th>Why</th>
+            <th>Data sent off-device?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Camera</strong></td><td>Record the road during a trip</td><td><span class="badge-no">No — stored locally</span></td></tr>
+          <tr><td><strong>Microphone</strong></td><td>Record audio alongside video</td><td><span class="badge-no">No — stored locally</span></td></tr>
+          <tr><td><strong>Location</strong></td><td>Overlay GPS coordinates on the video</td><td><span class="badge-no">No — stays on device</span></td></tr>
+          <tr><td><strong>Activity Recognition</strong></td><td>Auto-detect trip start / end</td><td><span class="badge-no">No — processed locally</span></td></tr>
+          <tr><td><strong>Bluetooth</strong></td><td>Detect car stereo connection to start a trip</td><td><span class="badge-no">No — processed locally</span></td></tr>
+          <tr><td><strong>Notifications</strong></td><td>Show recording status</td><td><span class="badge-no">No</span></td></tr>
+          <tr><td><strong>Foreground Service</strong></td><td>Keep recording active with a visible notification</td><td><span class="badge-no">No</span></td></tr>
+          <tr><td><strong>Internet / Ad ID</strong></td><td>Ads and analytics (see §4)</td><td><span class="badge-yes">Yes — see §4</span></td></tr>
+        </tbody>
+      </table>
+      <!-- Mobile cards -->
+      <div class="perm-cards">
+        <div class="perm-card"><div class="perm-name">Camera</div><div class="perm-why">Record the road during a trip</div><span class="badge-no">No — stored locally</span></div>
+        <div class="perm-card"><div class="perm-name">Microphone</div><div class="perm-why">Record audio alongside video</div><span class="badge-no">No — stored locally</span></div>
+        <div class="perm-card"><div class="perm-name">Location</div><div class="perm-why">Overlay GPS coordinates on the video</div><span class="badge-no">No — stays on device</span></div>
+        <div class="perm-card"><div class="perm-name">Activity Recognition</div><div class="perm-why">Auto-detect trip start / end</div><span class="badge-no">No — processed locally</span></div>
+        <div class="perm-card"><div class="perm-name">Bluetooth</div><div class="perm-why">Detect car stereo connection to start a trip</div><span class="badge-no">No — processed locally</span></div>
+        <div class="perm-card"><div class="perm-name">Notifications</div><div class="perm-why">Show recording status</div><span class="badge-no">No</span></div>
+        <div class="perm-card"><div class="perm-name">Foreground Service</div><div class="perm-why">Keep recording active with a visible notification</div><span class="badge-no">No</span></div>
+        <div class="perm-card"><div class="perm-name">Internet / Ad ID</div><div class="perm-why">Ads and analytics (see §4)</div><span class="badge-yes">Yes — see §4</span></div>
+      </div>
+    </div>
+
+    <p style="margin-top:1rem;">Recording <strong>never starts without your knowledge</strong>: it is launched by you (button in the app, voice command) or, in auto-detection mode, only after you tap an explicit notification. A persistent notification is displayed for the entire duration of any recording session.</p>
+
+    <h2>4. Data actually collected by us or third parties</h2>
+    <p>We do not create user accounts (guest usage). The only data that leaves your device is the following:</p>
+
+    <p class="section-sub">a) Feedback (if you submit one)</p>
+    <p>When you use the feedback feature, we send to <strong>Google Firebase (Cloud Firestore)</strong>: your message text, your device model, your Android version, the App version, and the submission date. This data is used to fix bugs and improve the App.</p>
+
+    <p class="section-sub">b) Usage analytics</p>
+    <p>The App uses <strong>Google Firebase Analytics</strong> to measure usage (screens viewed, technical events, app/device identifiers). This data is aggregated and used to improve the App.</p>
+
+    <p class="section-sub">c) Advertising</p>
+    <p>The App displays ads via <strong>Google AdMob</strong>, which may process your <strong>advertising ID</strong> and technical data to serve ads.<br/>
+    Google's privacy policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a><br/>
+    How Google uses partner data: <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">policies.google.com/technologies/partner-sites</a></p>
+
+    <p class="section-sub">d) Premium purchase</p>
+    <p>All purchases are processed by <strong>Google Play Billing</strong>. We do not receive or store your payment information.</p>
+
+    <h2>5. Data sharing</h2>
+    <p>We do not sell your data. It is only shared with the technical processors listed above (Google Firebase, Google AdMob, Google Play) for the stated purposes, and with authorities if required by law.</p>
+
+    <h2>6. Retention</h2>
+    <ul>
+      <li><strong>Videos / audio / GPS:</strong> kept locally until you delete them.</li>
+      <li><strong>Feedback:</strong> retained as long as necessary to process your request.</li>
+      <li><strong>Analytics / advertising:</strong> per Google's retention schedules.</li>
+    </ul>
+
+    <h2>7. Your rights</h2>
+    <p>Under the GDPR and applicable laws, you have the right to access, correct, delete, restrict, or object to the processing of your data. To exercise these rights, contact us at <a href="mailto:dashk.contact@gmail.com">dashk.contact@gmail.com</a>. You can also reset or disable your advertising ID in your Android settings.</p>
+
+    <h2>8. Children</h2>
+    <p>The App is not directed at children under <strong>13 years of age</strong> and we do not knowingly collect their data.</p>
+
+    <h2>9. Security</h2>
+    <p>Transmissions to Firebase / AdMob are encrypted (HTTPS). Your recordings remain in your device's storage.</p>
+
+    <h2>10. Changes</h2>
+    <p>We may update this policy from time to time. The date at the top indicates the current version.</p>
+
+    <h2>11. Contact</h2>
+    <p>For any questions: <a href="mailto:dashk.contact@gmail.com">dashk.contact@gmail.com</a></p>
+
+    <footer>© 2026 ZAMOURI Adam — Dashk (DashCamPhone)</footer>
+  </div>
+
+</div>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.classList.toggle('visible', el.dataset.lang === lang);
+    });
+    document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.documentElement.lang = lang;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Auto-detect browser language
+  const browserLang = navigator.language?.startsWith('fr') ? 'fr' : 'en';
+  setLang(browserLang);
+</script>
+
+</body>
+</html>
